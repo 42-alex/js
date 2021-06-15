@@ -25,3 +25,49 @@
 Функция может считаться предикатом только если она возвращает boolean.
 
 ---
+
+### Импорт и экспорт модулей в JS
+
+Экспорт из модуля
+```
+// content of donor.js
+// Option #1
+export const fourthWeekday = 'Thursday';
+export const getFifthWeekday = () => 'Friday';
+
+// Option #2
+export { fourthWeekday, getFifthWeekday as default };
+```
+
+Экспорт по умолчанию
+```
+// content of donor.js
+const getFifthWeekday = () => 'Friday';
+export default getFifthWeekday // export default () => 'Friday'
+```
+
+Импорт по умолчанию
+```
+// content of acceptor.js
+import nameOfDefault from './donor';
+```
+
+Импорт по умолчанию с другими импортами
+```
+// content of acceptor.js
+// Option #1
+import nameOfDefault, { getFirstWeekday, getSecondWeekday } from './donor';
+
+// Option #2
+import { default as nameOfDefault, getFirstWeekday, getSecondWeekday } from './donor';
+```
+
+Импорт всего модуля
+```
+// acceptor.js
+import * as someName from './donor';
+
+// usage
+someName.getThirdWeekday(); // 'Wednesday'
+someName.default(); // доступ (при данном виде импорта) к значению по умолчанию: 'Friday'
+```
