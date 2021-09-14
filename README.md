@@ -71,3 +71,59 @@ import * as someName from './donor';
 someName.getThirdWeekday(); // 'Wednesday'
 someName.default(); // доступ (при данном виде импорта) к значению по умолчанию: 'Friday'
 ```
+
+---
+
+### Функции для работы с cookie
+
+
+Returns a value of cookie with the specified name, or undefined if nothing was found
+```
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+```
+
+
+Sets a cookie with name "name" and value "value", with the default path ="/" setting (can be changed to add other defaults)
+
+Usage example: `setCookie('user', 'John', {secure: true, 'max-age': 3600});`
+```
+function setCookie(name, value, options = {}) {
+    options = {
+        path: '/',
+        // add other defaults as needed
+        ...options
+    };
+    
+    if (options.expires instanceof Date) {
+        options.expires = options.expires.toUTCString();
+    }
+    
+    let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+    
+    for (let optionKey in options) {
+        updatedCookie += "; " + optionKey;
+        let optionValue = options[optionKey];
+        if (optionValue !== true) {
+            updatedCookie += "=" + optionValue;
+        }
+    }
+    
+    document.cookie = updatedCookie;
+}
+```
+
+Delete cookie with name "name". Its dependency is previous function `setCookie()`
+```
+function deleteCookie(name) {
+    setCookie(name, "", {
+        'max-age': -1
+    })
+}
+```
+
+---
