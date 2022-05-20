@@ -138,5 +138,6 @@ for (const [name, value] of Object.entries(о)) {
     console.log(`${name}: ${value}`);
 }
 ```
+Если нам нужны только ключи или только значения, то используем `Object.keys` или `Object.values`
 
 ---
