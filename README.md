@@ -229,4 +229,14 @@ const obj = { add() {/*...*/} }
 ```
 
 ---
+### Регулярные выражения (regex)
+
+
+```
+/[A-Z]/.test(letter);  // checking for membership of a letter in the latin alpabet (upper case)
+/[A-Za-z]/.test(letter);  // checking for membership of a letter in the latin alpabet (both case)
+/[aeiou]/.test(letter);  // checking a letter of vowel
+```
+
+---
 
