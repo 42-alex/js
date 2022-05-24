@@ -244,6 +244,22 @@ let arr = arr.filter(item => item !== null && item !== undefined);
 ```
 let arr = arr.filter(Boolean); 
 ```
+#### Найти все индексы искомого значения
+```
+Array.prototype.indexOfAll = function (itemToFind) {
+	let results = [];
+	
+	for (let pos = 0; pos < this.length; pos++) {
+		pos = this.indexOf(itemToFind, pos);  // 2nd arguments means "start from"
+		if (pos === -1) break;
+		
+		results.push(pos);
+	}
+	
+	return results;
+}; 
+Array.from('Hello world!').indexOfAll('l'); // [2, 3, 9]
+```
 
 ### Правильная сортировка массива
 
