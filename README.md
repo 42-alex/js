@@ -282,5 +282,18 @@ a.sortO;  // a == ["Bug", "Dog", "ant", "cat"]; сортировка, чувст
     return 0;
 });  // a == ["ant","Bug","cat","Dog"]; сортировка, нечувствительная к регистру
 ```
+
+#### Создание массива из массивоподобного объекта (объект со свойством length и положительными целочисленными свойствами)
+Способ №1 (заимствование метода)
+```
+const arrLike = { 0: 'a', 1: 'b', 2: 'c', length: 3 };
+const realArr = Array.prototype.slice.call(arrLike, 0);  // ['a', 'b', 'c']
+```
+Способ №2 (использование фабричного метода Array.from())
+```
+const arrLike = { 0: 'a', 1: 'b', 2: 'c', length: 3 };
+const realArr = Array.from(arrLike);  // ['a', 'b', 'c']
+```
+
 ---
 
