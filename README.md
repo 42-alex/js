@@ -232,6 +232,19 @@ const obj = { add() {/*...*/} }
 ---
 ### Массивы
 
+#### Избавиться от брешей в разреженном массиве
+```
+let dense = sparce.filter(() => true);  // метод filter всегда пропускает недостающие элементы 
+```
+#### Избавиться от брешей, а также null и undefined
+```
+let arr = arr.filter(item => item !== null && item !== undefined); 
+```
+#### Избавиться всех falsy значений
+```
+let arr = arr.filter(Boolean); 
+```
+
 ### Правильная сортировка массива
 
 ```
