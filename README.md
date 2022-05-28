@@ -236,6 +236,10 @@ const obj = { add() {/*...*/} }
 /[A-Z]/.test(letter);  // checking for membership of a letter in the latin alpabet (upper case)
 /[A-Za-z]/.test(letter);  // checking for membership of a letter in the latin alpabet (both case)
 /[aeiou]/.test(letter);  // checking a letter of vowel
+// reverse every word that has length of 5 or more 
+const spinWords = str => {
+  return string.replace(/\w{5,}/g, function(w) { return w.split('').reverse().join('') })
+}
 ```
 
 ---
