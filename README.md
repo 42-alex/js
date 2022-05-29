@@ -350,3 +350,26 @@ function benchmark(n) {
 timed(benchmark)(1000000);  // возвращает результат вычисления и время выполнения в консоль
 ```
 
+---
+
+### Как измерить время выполнения кода JS
+Способ №1 (performance.now())
+```
+const startTime = performance.now();
+calculateSomething();
+const finishTime = performance.now();
+const executionTime = finishTime - startTime;  // 162.928955078125 ms
+```
+Способ №2 (Date.now()) - отличие от performance.now() в том, что здесь мы получаем целое число
+```
+const startTime = Date.now();
+calculateSomething();
+const finishTime = Date.now();
+const executionTime = finishTime - startTime;  // 162
+```
+Способ №3 (console.time())
+```
+console.time('yourMark');  // yourMark must match the mark you pass to timeEnd()
+calculateSomething();
+console.timeEnd('yourMark');  // yourMark: 162.928955078125 ms
+```
