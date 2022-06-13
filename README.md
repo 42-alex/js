@@ -33,10 +33,15 @@
 // content of donor.js
 // Option #1
 export const fourthWeekday = 'Thursday';
+export function sum(a, b) { return a + b };
+export class Circle {
+    constructor(r) { this.r = r }
+    area() { return PI * this.r * this.r }
+};
 export const getFifthWeekday = () => 'Friday';
 
 // Option #2
-export { fourthWeekday, getFifthWeekday as default };
+export { fourthWeekday, sum, Circle, getFifthWeekday as default };
 ```
 
 Экспорт по умолчанию
