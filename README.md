@@ -42,6 +42,12 @@ export const getFifthWeekday = () => 'Friday';
 
 // Option #2
 export { fourthWeekday, sum, Circle, getFifthWeekday as default };
+
+// Option #3 (экспорт с переименованием)
+export {
+    fourthWeekday as day,
+    sum as newFunctionName
+}
 ```
 
 Экспорт по умолчанию
