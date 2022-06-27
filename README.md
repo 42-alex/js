@@ -347,8 +347,8 @@ arr1.sort((a, b) => a - b);  // ['1', '7', '15'];
 let а = ["ant", "Bug", "cat", "Dog"];
 a.sortO;  // a == ["Bug", "Dog", "ant", "cat"]; сортировка, чувствительная к регистру 
 а.sort(function(s,t) {
-    let a = s .toLowerCase(); 
-    let b = t .toLowerCase(); 
+    let a = s.toLowerCase(); 
+    let b = t.toLowerCase(); 
     if (a < b) return -1; 
     if (a > b) return 1; 
     
