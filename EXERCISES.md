@@ -10,7 +10,9 @@ Create a function that accepts two arguments:
 
 The function should return phone number as a string in the provided format.
 Example: 
-```makeNumber([1, 1, 2, 2, 3, 3, 4, 4, 5, 5], '(xxx) xxx-xx-xx');  // returns '(112) 233-44-55')```
+```
+makeNumber([1, 1, 2, 2, 3, 3, 4, 4, 5, 5], '(xxx) xxx-xx-xx');  // returns '(112) 233-44-55')
+```
 
 ## Solutions
 
