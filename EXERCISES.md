@@ -15,15 +15,27 @@ Example:
 ## Solutions
 
 ### 1. Make a phone number
+#### Solution #1
 ```
 function makePhoneNumber(numbers, format){
   let result = format;
   
-  for(var i = 0; i < numbers.length; i++)
-  {
+  for(var i = 0; i < numbers.length; i++) {
     result = result.replace('x', numbers[i]);
   }
   
   return format;
 }
+
+makePhoneNumber([1,2,3,4,5,6,7,8,9,0], '(xxx) xxx-xxxx');  // '(123) 456-7890'
+```
+#### Solution #2
+```
+const makePhoneNumber = (numbers, format) => numbers
+    .reduce(
+        (acc, current) => acc.replace('*', current),
+        format
+    )
+    
+makePhoneNumber([1,2,3,4,5,6,7,8,9,0], '(***) ***-**-**');  // '(123) 456-78-90'
 ```
