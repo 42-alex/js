@@ -1,6 +1,16 @@
 # Date
 
-### How to get day name from date
+### How to get the current timestamp
+
+```
+    Date.now();             // option #1
+    +new Date;              // option #2
+    Number(new Date());     // option #3
+    new Date().valueOf();   // option #4
+    new Date().getTime();   // option #5
+```
+
+### How to get a day name from a date
 
 ```
     let date = new Date()
