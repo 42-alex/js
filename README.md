@@ -504,10 +504,45 @@ let obj = {
         }
     }
 }
+
 // теперь такой объект можно использовать с итерируемыми операторами
 [...obj];                           // [1, 2, 3, 4, 5]
 // or
 for (let i of obj) {
     console.log(i);                 // 1, 2, 3, 4, 5
+}
+```
+
+#### Как сделать объект асинхронно итерируемым
+
+Первое отличие от обычного итерируемого объекта в том, что в объект нужно добавлять метод [Symbol.asyncIterator]
+вместо [Symbol.iterator]. Второе отличие в том, что метод итератора next() возвращает не объект результата итерации,
+а Promise, который уже разрешается в объект результата итерации.
+
+```
+let obj = {
+    from: 1,
+    to: 5,
+    [Symbol.asyncIterator]() {
+        let i = this.from;
+        return {
+            next: () => {
+                if(i <= this.to) {
+                    return new Promise(resolve => {
+                        setTimeout(
+                            () => resolve({ value: i++}),
+                            2000
+                        )
+                    })
+                }
+                return Promise.resolve({ done: true });
+            }
+        }
+    }
+}
+
+// теперь такой объект можно использовать в цикле for/await 
+for await (let value of obj) {
+    console.log(value);  // выведeт цифры от 1 до 5 с интервалом в 2 секунды
 }
 ```
