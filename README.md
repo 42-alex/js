@@ -572,3 +572,28 @@ let р = Object.defineProperties({}, {
 });
 p.r;  // => Math.SQRT2
 ```
+
+---
+
+### Как получить класс любого значения
+
+```
+function classof(о) {
+    return Object.prototype.toString.call(o).slice(8,-1);
+}
+
+classof(null)        // => "Null"
+classof(undefined)   // => "Undefined1
+classof(1)           // => "Number"*
+classof(10n**100n)   // => "Biglnt"
+classof("")          // => "String"
+classof(false)       // => "Boolean"
+classof(Symbol())    // => "Symbol"
+classof({})          // => "Object"
+classof([])          // => "Array"
+classof(/./)         // => "RegExp"
+classof(()=>{})      // => "Function"
+classof (new Map ()) // => "Map"
+classof(new Set ())  // => "Set"
+classof(new Date())  // -> "Date"
+```
