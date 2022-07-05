@@ -597,3 +597,21 @@ classof (new Map ()) // => "Map"
 classof(new Set ())  // => "Set"
 classof(new Date())  // -> "Date"
 ```
+
+---
+
+### Как асинхронно импортировать скрипт с помощью функции
+
+```
+const importScript = (url) => {
+  return new Promise((resolve, reject) => {
+    let s = document.createElement('script');
+    s.onload = () => resolve();
+    s.onerror = (e) => reject(e);
+    s.src = url;
+    document.head.append(s);
+  })
+};
+
+importScript('https://example.com/your_script_here.js');
+```
