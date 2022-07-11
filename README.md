@@ -615,3 +615,24 @@ const importScript = (url) => {
 
 importScript('https://example.com/your_script_here.js');
 ```
+
+---
+
+### Как получить текст HTML-элемента
+
+Есть два способа:
+* свойство textContent (рекомендуемое)
+* свойство innerText (не рекомендуемое, т.к. оно не определено как следует и не реализовано совместимым между браузерами образом)
+
+Пример.
+Допустим наш HTML содержит следующий заголовок h1
+```<h1>What a <span>wonderful</span> day</h1>```
+найдем его и отобразим его текст
+```
+let h1 = document.querySelector('h1')
+let h1Text = h1.textContent;  // What a wonderful day
+```
+Обратите внимание, что теги внутри h1 вырезались. Свойство textContent находит и возвращает весь текст во всех потомках элемента.
+
+
+
