@@ -1,0 +1,25 @@
+.loader {
+	position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 26px;
+    text-transform: uppercase;
+}
+
+.loader.active {
+	display: flex;
+}
+
+.loader span {
+	animation: flip 2s infinite;
+	animation-delay: calc(.2s * var(--i))
+}
+
+
+@keyframes flip {
+  0%,50% {
+	transform: rotateY(360deg) 
+  }
+}

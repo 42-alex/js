@@ -1,0 +1,1 @@
+### This is an example of how you can use loader during async operations without any additional assets like gif or svg
