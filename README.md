@@ -57,7 +57,7 @@ const getFifthWeekday = () => 'Friday';
 export default getFifthWeekday // export default () => 'Friday'
 ```
 
-Повторное экспортирование
+Повторное экспортирование (re-export)
 ```
 // допустим, есть необходимость сделать удобный модуль откуда можно импортировать несколько функций в одной строке
 import { mean } from "./stats/mean.js";
@@ -70,6 +70,10 @@ export { stddev } from "./stats/stddev.js";
 // или так, если модули которые мы хотим повторно экспортировать делали export default
 export { default as mean } from "./stats/mean.js";
 export { default as stddev } from "./stats/stddev.js";
+// если нужно переэкспортировать модуль по умолчанию и оставить его дефолтным для последующих импортов
+export { default } from "./stats/mean.js";
+// если нужно переэкспортировать именованный модуль, но сделать его дефолтным для последующих импортов
+export { mean as default } from "./stats/mean.js";
 
 // если нас не интересует избирательность при повторном экспортировании, тогда можем применить групповой экспорт
 export * from "./stats/mean.js";
