@@ -265,16 +265,6 @@ let max = maxWidth || preferences.maxWidth || 500;
 
 ---
 
-### Получение случайного целого числа в диапазоне от m до n
-
-Формула: `m + Math.floor(Math.random() * (n + 1))`
-Например, чтобы получить случайное число от 5 до 10, выполните:
-```
-5 + Math.floor(Math.random() * 11)
-```
-
----
-
 ### ES5 vs ES6+
 
 Определение метода в объекте в ES5
@@ -638,5 +628,20 @@ let h1Text = h1.textContent;  // What a wonderful day
 ```
 Обратите внимание, что теги внутри h1 вырезались. Свойство textContent находит и возвращает весь текст во всех потомках элемента.
 
+---
 
+### Get a random number 
+
+From 0 to {maxNumber}
+```
+const max = 200;
+const getRandomNumber = (max) => Math.floor(Math.random() * max)
+```
+
+From {minNumber} to {maxNumber}
+```
+const min = 80;
+const max = 200;
+const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
+```
 
