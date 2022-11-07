@@ -645,3 +645,35 @@ const max = 200;
 const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
 ```
 
+---
+
+### Create a new number id for the next object in array: the_highest_id + 1
+
+```
+const todos = [
+  {
+    id: 1,
+    text: 'Learn JS',
+    completed: true
+  }
+]
+
+const addNewTodo = (todoText) => {
+  const maxId = todos.reduce(
+    (maxId, todo) => Math.max(maxId, todo.id),
+    -1
+  );
+  const newTodoId = maxId + 1;
+  
+  // or in one row:
+  // todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1
+  
+  todos.push({
+    id: newTodoId,
+    text: todoText,
+    completed: false,
+  })
+}
+```
+
+---
