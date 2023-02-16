@@ -677,3 +677,43 @@ const addNewTodo = (todoText) => {
 ```
 
 ---
+
+### Specifying a default value for a function property
+
+#### Approach #1
+```
+function drawShape(size = 100) {
+    // ...
+}
+```
+The default value {100} is only used if you don't pass an argument to the drawShape
+function or you pass `undefined` value. If you pass `null` or any other falsy value
+the default value will not be applied.
+
+#### Approach #2 
+
+```
+function drawShape(size) {
+    const defaultSize = size || 100;
+}
+```
+In this case the fall back value will be applied either you don't pass an argument 
+or you pass a falsy value like 0, '', null, undefined, false;
+
+#### Approach #3 
+```
+function drawShape(size) {
+    const defaultSize = size ?? 100;
+}
+```
+The nullish coalescing operator return the default value only if the "size" 
+argument equals `null` or `undefined`. There is more verbose way to do the same
+but it is supported in all browsers and Node.js versions.
+```
+function drawShape(size) {
+    const defaultSize = typeof size !== 'undefined && size !== null'
+        ? size
+        : 100;
+}
+```
+
