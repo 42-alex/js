@@ -678,7 +678,7 @@ const addNewTodo = (todoText) => {
 
 ---
 
-### Specifying a default value for a function property
+### Specifying a default value for a function parameter
 
 #### Approach #1
 ```
